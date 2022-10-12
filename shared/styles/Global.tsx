@@ -174,12 +174,9 @@ const ResetCSS = css`
   }
 `;
 
-const GlobalStyle = ({ children }) => {
+const GlobalStyle = () => {
     return (
-        <>
-            <Global styles={ResetCSS} />
-            {children}
-        </>
+        <Global styles={ResetCSS} />
     );
 };
 

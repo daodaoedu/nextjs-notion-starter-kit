@@ -64,7 +64,8 @@
     "@next/bundle-analyzer": "^12.1.0",
     "@types/node": "^17.0.23",
     "@types/node-fetch": "^3.0.3",
-    "@types/react": "^17.0.31",
+    "@types/react": "17.0.39",
+    "@types/react-dom": "17.0.15",
     "@typescript-eslint/eslint-plugin": "^5.15.0",
     "@typescript-eslint/parser": "^5.15.0",
     "cross-env": "^7.0.2",
@@ -78,7 +79,9 @@
   },
   "resolutions": {
     "next-api-og-image/chrome-aws-lambda": "6.0.0",
-    "next-api-og-image/puppeteer-core": "6.0.0"
+    "next-api-og-image/puppeteer-core": "6.0.0",
+    "@types/react": "<18.0.0",
+    "@types/react-dom": "<18.0.0"
   },
   "overrides": {
     "next-api-og-image": {

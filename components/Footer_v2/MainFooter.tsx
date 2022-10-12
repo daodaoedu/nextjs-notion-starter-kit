@@ -98,8 +98,8 @@ const SubFooter = () => {
       </BlockWrapper>
       <BlockWrapper>
         {/* 連結 */}
-        <IntroList title='關於島島阿學' list={aboutDaoConfig} />
-        <IntroList title='找資源' list={FOOTER_LINK} />
+        <IntroList list={aboutDaoConfig} />
+        <IntroList list={FOOTER_LINK} />
       </BlockWrapper>
       <BlockWrapper>
         {/* 追蹤島島 */}

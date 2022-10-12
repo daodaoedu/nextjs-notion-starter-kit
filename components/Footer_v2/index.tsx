@@ -2,7 +2,6 @@ import * as React from 'react'
 import styled from '@emotion/styled'
 import SubFooter from './SubFooter'
 import MainFooter from './MainFooter'
-import styles from '../styles.module.css'
 
 const FooterWrapper = styled.footer`
   width: 100%;

@@ -21,7 +21,7 @@ const IntroListWrapper = styled.div`
   }
 `
 
-const IntroList = ({ title, list }) => {
+const IntroList = ({ list }) => {
   return (
     <IntroListWrapper>
       {/* <h2>{title}</h2> */}
