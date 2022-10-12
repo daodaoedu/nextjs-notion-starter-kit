@@ -34,6 +34,8 @@ import {
   posthogConfig
 } from 'lib/config'
 
+import Global from '../shared/styles/Global'
+
 if (!isServer) {
   bootstrap()
 }
@@ -67,5 +69,10 @@ export default function App({ Component, pageProps }: AppProps) {
     }
   }, [router.events])
 
-  return <Component {...pageProps} />
+  return (
+    <>
+      <Global />
+      <Component {...pageProps} />
+    </>
+  );
 }

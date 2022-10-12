@@ -7,13 +7,13 @@ import IconList from './IconList'
 const FOOTER_LINK = [
   {
     name: '找資源',
-    link: '/search',
-    target: '_self'
+    link: 'https://www.daoedu.tw/search',
+    target: '_blank'
   },
   {
     name: '找活動',
-    link: '/activities',
-    target: '_self'
+    link: 'https://www.daoedu.tw/activities',
+    target: '_blank'
   },
   {
     name: '加入社群',
@@ -22,13 +22,13 @@ const FOOTER_LINK = [
   },
   {
     name: '教育場域',
-    link: '/locations',
-    target: '_self'
+    link: 'https://www.daoedu.tw/locations',
+    target: '_blank'
   },
   {
     name: '隱私權政策',
-    link: '/privacypolicy',
-    target: '_self'
+    link: 'https://www.daoedu.tw/privacypolicy',
+    target: '_blank'
   }
 ]
 
