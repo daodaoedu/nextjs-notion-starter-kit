@@ -72,7 +72,7 @@ export const FooterImpl: React.FC = () => {
           </a>
         )}
 
-        {config.github && (
+        {/* {config.github && (
           <a
             className={styles.github}
             href={`https://github.com/${config.github}`}
@@ -82,7 +82,7 @@ export const FooterImpl: React.FC = () => {
           >
             <FaGithub />
           </a>
-        )}
+        )} */}
 
         {config.linkedin && (
           <a
