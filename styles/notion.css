@@ -7,6 +7,10 @@
  * places to add some flare.
  */
 
+:root {
+  --primary: #16b9b3;
+}
+
 .notion {
   --notion-max-width: 720px;
   --notion-header-height: 54px;
@@ -353,8 +357,10 @@
 }
 
 .notion-header {
-  background: hsla(0, 0%, 100%, 0.8);
+  /* background: hsla(0, 0%, 100%, 0.8); */
+  background-color: var(--primary);
   backdrop-filter: saturate(180%) blur(16px);
+  height: 80px;
 }
 
 .dark-mode .notion-header {
