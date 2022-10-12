@@ -1,29 +1,5 @@
 # 島島 Blog
 
-專案源自於：https://github.com/transitive-bullshit/nextjs-notion-starter-kit
-
-##  合併原始專案教學
-
-0. 設定原始專案（已設定，不需做）
-
-```
-git remote add upstream https://github.com/ORIGINAL_OWNER/ORIGINAL_REPOSITORY.git
-```
-
-1. fetch原始專案
-
-```
-git fetch upstream
-```
-
-2. 合併專案（這個操作等同於 git pull = fetch + merge）
-
-```
-git merge upstream/master master
-```
-
-
-
 ---
 
 ## 以下是官方原始的資料
