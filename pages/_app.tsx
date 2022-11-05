@@ -24,6 +24,8 @@ import * as Fathom from 'fathom-client'
 import type { AppProps } from 'next/app'
 import { useRouter } from 'next/router'
 import posthog from 'posthog-js'
+import { ThemeProvider } from '@mui/material/styles'
+import themeFactory from '../styles/themeFactory'
 
 import { bootstrap } from 'lib/bootstrap-client'
 import {
@@ -42,6 +44,7 @@ if (!isServer) {
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter()
+  const theme = React.useMemo(() => themeFactory("light"), [])
 
   React.useEffect(() => {
     function onRouteChangeComplete() {
@@ -70,9 +73,9 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [router.events])
 
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <Global />
       <Component {...pageProps} />
-    </>
+    </ThemeProvider>
   );
 }

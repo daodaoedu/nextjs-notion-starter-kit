@@ -48,8 +48,8 @@ export default withOGImage<'query', 'id'>({
       const title = getBlockTitle(block, recordMap) || config.name
       const image = mapImageUrl(
         getPageProperty<string>('Social Image', block, recordMap) ||
-          (block as PageBlock).format?.page_cover ||
-          config.defaultPageCover,
+        (block as PageBlock).format?.page_cover ||
+        config.defaultPageCover,
         block
       )
 
@@ -86,13 +86,13 @@ export default withOGImage<'query', 'id'>({
       const dateUpdated = lastUpdatedTime
         ? new Date(lastUpdatedTime)
         : publishedTime
-        ? new Date(publishedTime)
-        : undefined
+          ? new Date(publishedTime)
+          : undefined
       const date =
         isBlogPost && dateUpdated
           ? `${dateUpdated.toLocaleString('en-US', {
-              month: 'long'
-            })} ${dateUpdated.getFullYear()}`
+            month: 'long'
+          })} ${dateUpdated.getFullYear()}`
           : undefined
       const detail = date || config.domain
 
