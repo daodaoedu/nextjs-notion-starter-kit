@@ -30,7 +30,7 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     title: config.name,
     site_url: config.host,
     feed_url: `${config.host}/feed.xml`,
-    language: config.language,
+    language: "zh",
     ttl: ttlMinutes
   })
 
@@ -66,8 +66,8 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
     const date = lastUpdatedTime
       ? new Date(lastUpdatedTime)
       : publishedTime
-      ? new Date(publishedTime)
-      : undefined
+        ? new Date(publishedTime)
+        : undefined
     const socialImageUrl = getSocialImageUrl(pageId)
 
     feed.item({
@@ -77,9 +77,9 @@ export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
       description,
       enclosure: socialImageUrl
         ? {
-            url: socialImageUrl,
-            type: 'image/jpeg'
-          }
+          url: socialImageUrl,
+          type: 'image/jpeg'
+        }
         : undefined
     })
   }
