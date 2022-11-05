@@ -30,14 +30,14 @@ const shrinkFrames = keyframes`
   }
 `;
 
-const MenuItemWrapper = styled.li`
+const MenuItemWrapper = styled.li<{ delay: string }>`
   animation: 1s ${appearFrames} forwards;
   ${({ delay }) => css`
     animation-delay: ${delay};
   `}
 `;
 
-const ItemWrapper = styled.div`
+const ItemWrapper = styled.div<{ delay: string }>`
   font-size: 30px;
   padding: 1rem 0;
   margin: 0 5%;
@@ -45,15 +45,15 @@ const ItemWrapper = styled.div`
   color: #fafafa;
   transition: color 0.2s ease-in-out;
   animation: 0.5s ${slideInFrames} forwards;
-  ${(props) => css`
-    animation-delay: ${props.delay};
+  ${({ delay }) => css`
+    animation-delay: ${delay};
   `}
   &:hover {
     color: "gray";
   }
 `;
 
-const LineStyle = styled.div`
+const LineStyle = styled.div<{ delay: string }>`
   width: "90%";
   height: "1px";
   background: "#fafafa";

@@ -3,7 +3,7 @@ import React from 'react'
 import styled from '@emotion/styled'
 import MenuItem from './MenuItem'
 
-const MenuWrapper = styled.div`
+const MenuWrapper = styled.div<{ open: string }>`
   position: fixed;
   top: 0;
   left: 0;
