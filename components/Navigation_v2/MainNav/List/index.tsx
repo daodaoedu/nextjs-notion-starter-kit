@@ -19,6 +19,11 @@ const NAV_LINK = [
     target: "_blank",
   },
   {
+    name: "教育場域",
+    link: "https://www.daoedu.tw/locations",
+    target: "_blank",
+  },
+  {
     name: "部落格",
     link: null,
     target: null,
