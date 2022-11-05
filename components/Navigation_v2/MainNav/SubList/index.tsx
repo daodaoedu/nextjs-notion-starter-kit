@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from '@emotion/styled'
-import Link from 'next/link'
 
 const LinkListWrapper = styled.ul`
   display: flex;

@@ -24,7 +24,7 @@ const NAV_LINK = [
     target: "_blank",
   },
   {
-    name: "部落格",
+    name: "找故事",
     link: null,
     target: null,
   },

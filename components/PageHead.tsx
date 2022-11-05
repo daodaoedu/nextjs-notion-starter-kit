@@ -26,6 +26,7 @@ export const PageHead: React.FC<
     <Head>
       <meta charSet='utf-8' />
       <meta httpEquiv='Content-Type' content='text/html; charset=utf-8' />
+      <link rel="mask-icon" href="https://www.daoedu.tw/favicon.png" color="#16b9b3" />
       <meta
         name='viewport'
         content='width=device-width, initial-scale=1, shrink-to-fit=no'
@@ -80,6 +81,16 @@ export const PageHead: React.FC<
 
       <meta property='og:title' content={title} />
       <meta name='twitter:title' content={title} />
+
+      {/* Twitter Card data */}
+      <meta name="twitter:title" content={title} />
+      <meta name="twitter:description" content={description} />
+      <meta name="twitter:site" content="@島島阿學" />
+      <meta name="twitter:creator" content="島島阿學" />
+
+      <meta name="twitter:image:alt" content="daodao logo" />
+
+      <meta name="theme-color" itemProp="theme-color" content="#16b9b3" />
       <title>{title}</title>
     </Head>
   )

@@ -9,12 +9,12 @@ export default siteConfig({
   rootNotionSpaceId: 'cc246794-7553-4039-870c-c2c6a9f8af8e',
 
   // basic site info (required)
-  name: '島島阿學',
+  name: '島島阿學多元學習社群',
   domain: 'blog.daoedu.tw',
-  author: '島島阿學',
+  author: '島島阿學多元學習社群',
 //
   // open graph metadata (optional)
-  description: 'Example Next.js Notion Starter Kit Site',
+  description: '「島島阿學」盼能透過建立多元的學習資源網絡，讓自主學習者能找到合適的成長方法，進一步成為自己想成為的人，從中培養共好精神。目前正積極打造「可共編的學習資源平台」。',
 
   // social usernames (optional)
   twitter: '',

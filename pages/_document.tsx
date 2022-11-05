@@ -8,12 +8,13 @@ export default class MyDocument extends Document {
       <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
         <Html lang='zh'>
           <Head>
-            <link rel='shortcut icon' href='/favicon.ico' />
+            <link rel="apple-touch-icon" href="https://www.daoedu.tw/favicon.png" />
+            <link rel='shortcut icon' href='https://www.daoedu.tw/favicon.png' />
             <link
               rel='icon'
               type='image/png'
               sizes='32x32'
-              href='favicon.png'
+              href='https://www.daoedu.tw/favicon.png'
             />
 
             <link rel='manifest' href='/manifest.json' />
