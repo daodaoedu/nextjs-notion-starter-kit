@@ -26,7 +26,7 @@ import { useRouter } from 'next/router'
 import posthog from 'posthog-js'
 import { ThemeProvider } from '@mui/material/styles'
 import themeFactory from '../styles/themeFactory'
-
+import Script from 'next/script';
 import { bootstrap } from 'lib/bootstrap-client'
 import {
   isServer,
@@ -36,7 +36,7 @@ import {
   posthogConfig
 } from 'lib/config'
 
-import Global from '../shared/styles/Global'
+import GlobalCSS from '../shared/styles/Global'
 
 if (!isServer) {
   bootstrap()
@@ -74,7 +74,20 @@ export default function App({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={theme}>
-      <Global />
+      <Script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=G-7YB1PNN0BX"
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-7YB1PNN0BX');
+          `}
+      </Script>
+      <GlobalCSS />
       <Component {...pageProps} />
     </ThemeProvider>
   );
