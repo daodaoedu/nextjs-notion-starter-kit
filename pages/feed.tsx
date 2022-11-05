@@ -28,7 +28,8 @@ import { getSocialImageUrl } from 'lib/get-social-image-url'
 //     </urlset>
 //     `;
 
-class Sitemap extends React.Component {
+// Reference: https://leerob.io/blog/nextjs-sitemap-robots
+class Feed extends React.Component {
   static async getInitialProps({ req, res }) {
     if (req.method !== 'GET') {
       res.statusCode = 405
@@ -45,7 +46,7 @@ class Sitemap extends React.Component {
     const feed = new RSS({
       title: config.name,
       site_url: config.host,
-      feed_url: `${config.host}/feed.xml`,
+      feed_url: `${config.host}/feed`,
       language: "zh",
       ttl: ttlMinutes
     })
@@ -112,4 +113,4 @@ class Sitemap extends React.Component {
   }
 }
 
-export default Sitemap;
+export default Feed;
