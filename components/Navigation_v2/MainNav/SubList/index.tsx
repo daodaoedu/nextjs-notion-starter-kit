@@ -46,11 +46,11 @@ const SubList = () => {
     <SubListWrapper>
       <LinkListWrapper>
         <li>
-          <Link href='/contribute/resource' passHref>
+          <a href='https://www.daoedu.tw/contribute/resource' target="_blank" rel="noreferrer">
             <p className='login' role='presentation'>
               新增資源
             </p>
-          </Link>
+          </a>
         </li>
       </LinkListWrapper>
     </SubListWrapper>
