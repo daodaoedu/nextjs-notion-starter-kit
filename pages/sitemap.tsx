@@ -70,10 +70,15 @@ Sitemap.getInitialProps = async ({ req, res }: PageContext) => {
 
     res?.setHeader('Content-Type', 'text/xml; charset=utf-8')
     res?.end(sitemapOutput)
+    return {
+      props: {}
+    }
   } catch (error) {
     // console.error(error)
     // res?.status(500).end()
-    return { notFound: true }
+    // return { notFound: true }
+    return {
+      props: {}
+    }
   }
-  return { notFound: true }
 }

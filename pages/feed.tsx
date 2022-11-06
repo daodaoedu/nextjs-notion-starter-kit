@@ -91,6 +91,9 @@ Feed.getInitialProps = async ({ req, res }: PageContext) => {
       props: {}
     }
   } catch {
-    return { notFound: true }
+    // return { notFound: true }
+    return {
+      props: {}
+    }
   }
 }
