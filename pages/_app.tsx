@@ -26,6 +26,7 @@ import { useRouter } from 'next/router'
 import posthog from 'posthog-js'
 import { ThemeProvider } from '@mui/material/styles'
 import themeFactory from '../styles/themeFactory'
+import Head from 'next/head'
 
 import { bootstrap } from 'lib/bootstrap-client'
 import {
@@ -73,9 +74,19 @@ export default function App({ Component, pageProps }: AppProps) {
   }, [router.events])
 
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalCSS />
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <>
+      <Head>
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title="自學故事分享平台｜島島阿學"
+          href="https://www.daoedu.tw/rss.xml"
+        />
+      </Head>
+      <ThemeProvider theme={theme}>
+        <GlobalCSS />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
   );
 }
