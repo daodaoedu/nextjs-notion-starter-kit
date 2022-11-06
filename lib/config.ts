@@ -142,7 +142,8 @@ export const site: Site = {
   description
 }
 
-export const fathomId = isDev ? null : process.env.NEXT_PUBLIC_FATHOM_ID
+export const fathomId = null
+// export const fathomId = isDev ? null : process.env.NEXT_PUBLIC_FATHOM_ID
 export const fathomConfig = fathomId
   ? {
       excludedDomains: ['localhost', 'localhost:3000']
