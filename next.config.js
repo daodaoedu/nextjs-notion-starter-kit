@@ -5,28 +5,28 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 
 module.exports = withBundleAnalyzer({
   staticPageGenerationTimeout: 300,
-  webpack: (config) => {
-    config.resolve.fallback = {
-      fs: false,
-      net: false,
-      dns: false,
-      child_process: false,
-      tls: false,
-      stream: false,
-      events: false,
-      path: false,
-      util: false,
-      zlib: false,
-      querystring: false,
-      process: false,
-      http: false,
-      https: false,
-      readline: false,
-      http2: false,
-      os: false
-      // os: require.resolve('os-browserify/browser')
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        fs: false,
+        net: false,
+        dns: false,
+        child_process: false,
+        tls: false,
+        stream: false,
+        events: false,
+        path: false,
+        util: false,
+        zlib: false,
+        querystring: false,
+        process: false,
+        http: false,
+        https: false,
+        readline: false,
+        http2: false,
+        os: false
+      }
     }
-
     return config
   },
   images: {
