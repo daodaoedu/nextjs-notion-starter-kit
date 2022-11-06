@@ -41,6 +41,11 @@ const NAV_LINK = [
     target: "_blank",
   },
   {
+    name: "找故事",
+    link: "/",
+    target: "_self",
+  },
+  {
     name: "找活動",
     link: "https://www.daoedu.tw/activities",
     target: "_blank",
@@ -54,11 +59,6 @@ const NAV_LINK = [
     name: "教育場域",
     link: "https://www.daoedu.tw/locations",
     target: "_blank",
-  },
-  {
-    name: "找故事",
-    link: null,
-    target: null,
   },
 ];
 

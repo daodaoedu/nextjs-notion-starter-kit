@@ -24,11 +24,6 @@ const NAV_LINK_MOBILE = [
     link: "https://www.daoedu.tw/locations",
     target: "_blank",
   },
-  {
-    name: "部落格",
-    link: null,
-    target: null,
-  },
 ];
 
 const MobileLinkListWrapper = styled.ul`
