@@ -14,19 +14,19 @@ const NAV_LINK = [
     target: "_blank",
   },
   {
-    name: "加入社群",
-    link: "https://www.facebook.com/groups/2237666046370459",
-    target: "_blank",
+    name: "找故事",
+    link: "/",
+    target: "_self",
   },
   {
-    name: "教育場域",
+    name: "找場域",
     link: "https://www.daoedu.tw/locations",
     target: "_blank",
   },
   {
-    name: "找故事",
-    link: null,
-    target: null,
+    name: "加入社群",
+    link: "https://www.facebook.com/groups/2237666046370459",
+    target: "_blank",
   },
 ];
 
