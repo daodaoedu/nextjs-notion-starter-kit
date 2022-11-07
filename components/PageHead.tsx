@@ -13,7 +13,7 @@ export const PageHead: React.FC<
     url?: string
   }
 > = ({ site, title, description, pageId, image, url }) => {
-  const rssFeedUrl = `${config.host}/feed`
+  // const rssFeedUrl = `${config.host}/feed`
 
   title = title ?? site?.name
   description = description ?? site?.description
@@ -71,10 +71,10 @@ export const PageHead: React.FC<
       )}
 
       <link
-        rel='alternate'
-        type='application/rss+xml'
-        href={rssFeedUrl}
-        title={site?.name}
+        rel="alternate"
+        type="application/rss+xml"
+        title="自學故事分享平台｜島島阿學"
+        href="https://www.daoedu.tw/rss.xml"
       />
 
       <meta property='og:title' content={title} />

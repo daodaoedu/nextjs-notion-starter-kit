@@ -1,26 +1,12 @@
 import * as React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { IconContext } from '@react-icons/all-files'
-import Script from 'next/script'
 
 export default class MyDocument extends Document {
   render() {
     return (
       <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
         <Html lang='zh'>
-          <Script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-7YB1PNN0BX"
-            strategy="afterInteractive"
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-7YB1PNN0BX');
-          `}
-          </Script>
           <Head>
             <meta
               name="google-site-verification"
@@ -34,7 +20,6 @@ export default class MyDocument extends Document {
               sizes='32x32'
               href='https://www.daoedu.tw/favicon.png'
             />
-
             <link rel='manifest' href='/manifest.json' />
           </Head>
 
