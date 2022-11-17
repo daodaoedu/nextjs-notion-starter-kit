@@ -76,7 +76,7 @@ export const PageHead: React.FC<
       <link
         rel="alternate"
         type="application/rss+xml"
-        title="自學故事分享平台｜島島阿學"
+        title="多元自學故事分享｜島島阿學"
         href="https://www.daoedu.tw/rss.xml"
       />
 
