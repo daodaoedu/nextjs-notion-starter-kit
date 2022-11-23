@@ -4,9 +4,9 @@ import { ExtendedRecordMap, SearchParams, SearchResults } from 'notion-types'
 import { mergeRecordMaps } from 'notion-utils'
 
 import { notion } from './notion-api'
-import { getPreviewImageMap } from './preview-images'
+// import { getPreviewImageMap } from './preview-images'
 import {
-  isPreviewImageSupportEnabled,
+  // isPreviewImageSupportEnabled,
   navigationStyle,
   navigationLinks
 } from './config'
@@ -55,10 +55,10 @@ export async function getPage(pageId: string): Promise<ExtendedRecordMap> {
     }
   }
 
-  if (isPreviewImageSupportEnabled) {
-    const previewImageMap = await getPreviewImageMap(recordMap)
-    ;(recordMap as any).preview_images = previewImageMap
-  }
+  // if (isPreviewImageSupportEnabled) {
+    // const previewImageMap = await getPreviewImageMap(recordMap)
+    // ;(recordMap as any).preview_images = previewImageMap
+  // }
 
   return recordMap
 }
