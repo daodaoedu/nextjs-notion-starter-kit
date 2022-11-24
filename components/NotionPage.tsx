@@ -40,7 +40,7 @@ import styles from './styles.module.css'
 // -----------------------------------------------------------------------------
 
 const Code = dynamic(() =>
-  import('react-notion-x/build/third-party/code').then(async (m) => {
+  import('../components/react-notion-x/third-party/code').then(async (m) => {
     // add / remove any prism syntaxes here
     await Promise.all([
       import('prismjs/components/prism-markup-templating.js'),
@@ -80,22 +80,22 @@ const Code = dynamic(() =>
 )
 
 const Collection = dynamic(() =>
-  import('react-notion-x/build/third-party/collection').then(
+  import('../components/react-notion-x/third-party/collection').then(
     (m) => m.Collection
   )
 )
 const Equation = dynamic(() =>
-  import('react-notion-x/build/third-party/equation').then((m) => m.Equation)
+  import('../components/react-notion-x/third-party/equation').then((m) => m.Equation)
 )
 const Pdf = dynamic(
-  () => import('react-notion-x/build/third-party/pdf').then((m) => m.Pdf),
+  () => import('../components/react-notion-x/third-party/pdf').then((m) => m.Pdf),
   {
     ssr: false
   }
 )
 const Modal = dynamic(
   () =>
-    import('react-notion-x/build/third-party/modal').then((m) => {
+    import('../components/react-notion-x/third-party/modal').then((m) => {
       m.Modal.setAppElement('.notion-viewport')
       return m.Modal
     }),
