@@ -1,5 +1,5 @@
 import { Block } from 'notion-types'
-import { defaultMapImageUrl } from 'react-notion-x'
+import { defaultMapImageUrl } from '../components/react-notion-x'
 
 import { defaultPageIcon, defaultPageCover } from './config'
 
