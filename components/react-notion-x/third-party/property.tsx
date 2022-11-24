@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import * as types from 'notion-types'
-import format from 'date-fns/format/index.js'
+import dayjs from "dayjs"
 import formatNumber from 'format-number'
 import { FormulaResult } from 'notion-types'
 
@@ -91,7 +91,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
           }
 
           if (content instanceof Date) {
-            content = format(content, 'MMM d, YYY hh:mm aa')
+            content = dayjs(content).format("YYYY/MM/DD")
           }
         } catch (err) {
           // console.log('error evaluating formula', schema.formula, err)
@@ -279,7 +279,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
   const renderCreatedTimeValue = React.useMemo(
     () =>
       function CreatedTimeProperty() {
-        return format(new Date(block?.created_time), 'MMM d, YYY hh:mm aa')
+        return dayjs(block?.created_time).format("YYYY/MM/DD")
       },
     [block?.created_time]
   )
@@ -287,7 +287,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
   const renderLastEditedTimeValue = React.useMemo(
     () =>
       function LastEditedTimeProperty() {
-        return format(new Date(block?.last_edited_time), 'MMM d, YYY hh:mm aa')
+        return dayjs(block?.last_edited_time).format("YYYY/MM/DD")
       },
     [block?.last_edited_time]
   )
@@ -354,7 +354,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
                   color && `notion-item-${color}`
                 )}
               >
-                {value}
+                # {value}
               </div>
             )
           )
