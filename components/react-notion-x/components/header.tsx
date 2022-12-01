@@ -10,6 +10,7 @@ import { SearchNotionFn } from '../types'
 import { cs } from '../utils'
 import { PageIcon } from './page-icon'
 import { SearchDialog } from './search-dialog'
+import { Box } from '@mui/material'
 
 export const Header: React.FC<{
   block: types.CollectionViewPageBlock | types.PageBlock
@@ -124,15 +125,26 @@ export const Search: React.FC<{
   return (
     <>
       {hasSearch && (
-        <div
+        <Box
           role='button'
           className={cs('breadcrumb', 'button', 'notion-search-button')}
           onClick={onOpenSearch}
+          sx={{
+            color: "#fff",
+            caretColor: "#fff",
+            marginRight: "16px",
+            svg: {
+              color: "#fff",
+              caretColor: "#fff",
+            }
+          }}
         >
-          <SearchIcon className='searchIcon' />
+          <SearchIcon
+            className='searchIcon'
+          />
 
           {title && <span className='title'>{title}</span>}
-        </div>
+        </Box>
       )}
 
       {isSearchOpen && hasSearch && (

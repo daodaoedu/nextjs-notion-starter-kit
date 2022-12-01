@@ -24,7 +24,7 @@ const BoxWrapper = styled(Box)`
   }
 `;
 
-const MainNav = () => {
+const MainNav = ({ block }) => {
   return (
     <MainNavWrapper>
       <BoxWrapper sx={{ display: "flex", justifyContent: "flex-start" }}>
@@ -32,7 +32,7 @@ const MainNav = () => {
         {/* main list */}
         <List />
         {/* right list */}
-        <SubList />
+        <SubList block={block} />
         {/* mobile only */}
         <Hamberger />
       </BoxWrapper>

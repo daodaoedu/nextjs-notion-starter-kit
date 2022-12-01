@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled'
+import { Search } from "../../../react-notion-x"
 
 const LinkListWrapper = styled.ul`
   display: flex;
@@ -40,10 +41,14 @@ const SubListWrapper = styled.div`
   }
 `
 
-const SubList = () => {
+const SubList = ({ block }) => {
   return (
     <SubListWrapper>
+
       <LinkListWrapper>
+        <li>
+          <Search block={block} title={null} />
+        </li>
         <li>
           <a href='https://www.daoedu.tw/contribute/resource' target="_blank" rel="noreferrer">
             <p className='login' role='presentation'>

@@ -151,8 +151,6 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
 
   const link = isLinkCollectionToUrlProperty && url ? url : mapPageUrl(block.id);
 
-  console.log("properties: ", properties);
-
   // 卡片改這邊
   const innerCard = (
     <>

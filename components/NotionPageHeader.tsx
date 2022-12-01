@@ -1,6 +1,8 @@
 import * as React from 'react'
 import * as types from 'notion-types'
 import { Box } from '@mui/material'
+// import { isSearchEnabled } from 'lib/config'
+// import { Search } from './react-notion-x'
 
 // import cs from 'classnames'
 // import { IoSunnyOutline } from '@react-icons/all-files/io5/IoSunnyOutline'
@@ -62,9 +64,11 @@ const NAV_LINK = [
   },
 ];
 
+// 沒有在用
 export const NotionPageHeader: React.FC<{
   block: types.CollectionViewPageBlock | types.PageBlock
 }> = () => {
+
   return (
     <header className='notion-header'>
       <div className='notion-nav-header'>
@@ -92,6 +96,7 @@ export const NotionPageHeader: React.FC<{
               ))
             }
           </Box>
+
           <Box
             sx={{
               fontSize: '16px',
@@ -103,6 +108,7 @@ export const NotionPageHeader: React.FC<{
             新增資源
           </Box>
         </Box>
+
       </div>
     </header >
   )
