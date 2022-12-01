@@ -12,6 +12,7 @@ import { Text } from '../components/text'
 import { useNotionContext } from '../context'
 import { cs } from '../utils'
 import { evalFormula } from './eval-formula'
+import { Box, Typography } from '@mui/material'
 
 export interface IPropertyProps {
   propertyId?: string
@@ -91,7 +92,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
           }
 
           if (content instanceof Date) {
-            content = dayjs(content).format("YYYY/MM/DD")
+            content = dayjs(content).format("YYYY.MM.DD")
           }
         } catch (err) {
           // console.log('error evaluating formula', schema.formula, err)
@@ -279,7 +280,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
   const renderCreatedTimeValue = React.useMemo(
     () =>
       function CreatedTimeProperty() {
-        return dayjs(block?.created_time).format("YYYY/MM/DD")
+        return dayjs(block?.created_time).format("YYYY.MM.DD")
       },
     [block?.created_time]
   )
@@ -287,7 +288,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
   const renderLastEditedTimeValue = React.useMemo(
     () =>
       function LastEditedTimeProperty() {
-        return dayjs(block?.last_edited_time).format("YYYY/MM/DD")
+        return dayjs(block?.last_edited_time).format("YYYY.MM.DD")
       },
     [block?.last_edited_time]
   )
@@ -297,6 +298,10 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
   }
 
   let content = null
+
+  console.log("data: ", data);
+  console.log("schema: ", schema);
+
 
   if (
     data ||
@@ -418,7 +423,32 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
         break
 
       case 'text':
-        content = components.propertyTextValue(props, renderTextValue)
+        if (schema.name === '作者') {
+          content = (
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "flex-start",
+                alignItems: "center"
+              }}>
+              <Box
+                component="img"
+                src="/assets/default-writer-avatar.png"
+                sx={{
+
+                  width: "18px",
+                  height: "18px",
+                  border: "1px solid #16b9b3",
+                  borderRadius: "100%",
+                }}
+              />
+              <Typography sx={{ marginLeft: "4px" }}>
+                {components.propertyTextValue(props, renderTextValue)}
+              </Typography>
+            </Box>)
+        } else {
+          content = components.propertyTextValue(props, renderTextValue)
+        }
         break
 
       case 'date':

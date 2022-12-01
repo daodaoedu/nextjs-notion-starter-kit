@@ -1508,9 +1508,10 @@ svg.notion-page-icon {
 }
 
 .notion-collection-card-body {
+  position: relative;
   display: flex;
   flex-direction: column;
-  padding: 4px 10px;
+  padding: 10px 0;
 }
 
 .notion-collection-card-property {

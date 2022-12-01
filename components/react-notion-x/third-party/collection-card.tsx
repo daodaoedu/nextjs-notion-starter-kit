@@ -8,6 +8,9 @@ import { NotionContextProvider, dummyLink, useNotionContext } from '../context'
 import { CollectionCardProps } from '../types'
 import { cs } from '../utils'
 import { Property } from './property'
+import { Box } from '@mui/material'
+import { IoIosArrowForward } from 'react-icons/io'
+
 
 export const CollectionCard: React.FC<CollectionCardProps> = ({
   collection,
@@ -146,6 +149,7 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
     url = linkProperties[0][0][0]
   }
 
+  // 卡片改這邊
   const innerCard = (
     <>
       {(coverContent || cover?.type !== 'none') && (
@@ -161,6 +165,29 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
             collection={collection}
           />
         </div>
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: "20px",
+            right: "0px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            background: "#16B9B3",
+            borderRadius: "100%",
+            width: "32px",
+            height: "32px",
+          }}
+        >
+          <IoIosArrowForward
+            style={{
+              background: "#16B9B3",
+              color: "#fff",
+              width: "20px",
+              height: "20px",
+            }}
+          />
+        </Box>
 
         {properties
           ?.filter(
