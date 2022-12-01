@@ -122,7 +122,7 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
           return <Text value={data} block={block} />
         }
       },
-    [block, components, data, linkToTitlePage, mapPageUrl]
+    [block, data, linkToTitlePage, mapPageUrl]
   )
 
   const renderPersonValue = React.useMemo(
@@ -301,8 +301,8 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
 
   let content = null
 
-  console.log("data: ", data);
-  console.log("schema: ", schema);
+  // console.log("data: ", data);
+  // console.log("schema: ", schema);
 
 
   if (

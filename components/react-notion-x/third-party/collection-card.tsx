@@ -151,6 +151,8 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
 
   const link = isLinkCollectionToUrlProperty && url ? url : mapPageUrl(block.id);
 
+  console.log("properties: ", properties);
+
   // 卡片改這邊
   const innerCard = (
     <>
@@ -159,7 +161,18 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
           component="a"
           href={link}
         >
-          <Box sx={{ cursor: "pointer" }} className='notion-collection-card-cover'>{coverContent}</Box>
+          <Box
+            sx={{
+              cursor: "pointer",
+              "&:hover": {
+                transform: "scale(1.05)",
+                transition: "transform 0.4s",
+              }
+            }}
+            className='notion-collection-card-cover'
+          >
+            {coverContent}
+          </Box>
         </components.PageLink>
       )}
 
