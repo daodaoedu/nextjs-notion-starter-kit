@@ -149,11 +149,18 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
     url = linkProperties[0][0][0]
   }
 
+  const link = isLinkCollectionToUrlProperty && url ? url : mapPageUrl(block.id);
+
   // 卡片改這邊
   const innerCard = (
     <>
       {(coverContent || cover?.type !== 'none') && (
-        <div className='notion-collection-card-cover'>{coverContent}</div>
+        <components.PageLink
+          component="a"
+          href={link}
+        >
+          <Box sx={{ cursor: "pointer" }} className='notion-collection-card-cover'>{coverContent}</Box>
+        </components.PageLink>
       )}
 
       <div className='notion-collection-card-body'>
@@ -165,29 +172,35 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
             collection={collection}
           />
         </div>
-        <Box
-          sx={{
-            position: "absolute",
-            bottom: "20px",
-            right: "0px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            background: "#16B9B3",
-            borderRadius: "100%",
-            width: "32px",
-            height: "32px",
-          }}
+        <components.PageLink
+          component="a"
+          href={link}
         >
-          <IoIosArrowForward
-            style={{
+          <Box
+            sx={{
+              cursor: "pointer",
+              position: "absolute",
+              bottom: "20px",
+              right: "0px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
               background: "#16B9B3",
-              color: "#fff",
-              width: "20px",
-              height: "20px",
+              borderRadius: "100%",
+              width: "32px",
+              height: "32px",
             }}
-          />
-        </Box>
+          >
+            <IoIosArrowForward
+              style={{
+                background: "#16B9B3",
+                color: "#fff",
+                width: "20px",
+                height: "20px",
+              }}
+            />
+          </Box>
+        </components.PageLink>
 
         {properties
           ?.filter(
@@ -238,31 +251,16 @@ export const CollectionCard: React.FC<CollectionCardProps> = ({
         PageLink: dummyLink
       }}
     >
-      {isLinkCollectionToUrlProperty && url ? (
-        <components.Link
-          className={cs(
-            'notion-collection-card',
-            `notion-collection-card-size-${coverSize}`,
-            className
-          )}
-          href={url}
-          {...rest}
-        >
-          {innerCard}
-        </components.Link>
-      ) : (
-        <components.PageLink
-          className={cs(
-            'notion-collection-card',
-            `notion-collection-card-size-${coverSize}`,
-            className
-          )}
-          href={mapPageUrl(block.id)}
-          {...rest}
-        >
-          {innerCard}
-        </components.PageLink>
-      )}
+      <Box
+        className={cs(
+          'notion-collection-card',
+          `notion-collection-card-size-${coverSize}`,
+          className
+        )}
+        {...rest}
+      >
+        {innerCard}
+      </Box>
     </NotionContextProvider>
   )
 }

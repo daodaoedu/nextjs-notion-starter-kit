@@ -109,14 +109,16 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
       function FormulaTitle() {
         if (block && linkToTitlePage) {
           return (
-            <components.PageLink
+            <Box
+              component="a"
               className={cs('notion-page-link')}
               href={mapPageUrl(block.id)}
             >
               <PageTitle block={block} />
-            </components.PageLink>
+            </Box>
           )
-        } else {
+        }
+        else {
           return <Text value={data} block={block} />
         }
       },
@@ -329,7 +331,11 @@ export const PropertyImpl: React.FC<IPropertyProps> = (props) => {
         break
 
       case 'title':
-        content = components.propertyTitleValue(props, renderTitleValue)
+        if (schema.name === "Name") {
+          content = components.propertyTitleValue(props, renderTitleValue)
+        } else {
+          content = components.propertyTitleValue(props, renderTitleValue)
+        }
         break
 
       case 'select':
