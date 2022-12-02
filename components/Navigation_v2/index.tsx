@@ -19,10 +19,10 @@ const NavigationWrapper = styled(AppBar)`
 //   margin: 0 auto;
 // `;
 // 問卷 https://docs.google.com/forms/d/e/1FAIpQLSeyU9-Q-kIWp5uutcik3h-RO4o5VuG6oG0m-4u1Ua18EOu3aw/viewform
-const Navigation = ({ block }) => {
+const Navigation = () => {
   return (
     <NavigationWrapper position="sticky">
-      <MainNav block={block} />
+      <MainNav />
     </NavigationWrapper>
   );
 };
