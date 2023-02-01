@@ -12,7 +12,7 @@ interface PageContext extends NextPageContext {
   res: NextApiResponse;
 }
 
-const siteURL = 'https://blog.daoedu.com'
+const siteURL = 'https://blog.daoedu.tw'
 
 export default function Sitemap(props) {
   return <NotionPage {...props} />
