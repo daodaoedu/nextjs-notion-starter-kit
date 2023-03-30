@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import { useSearchParam } from 'react-use'
 import BodyClassName from 'react-body-classname'
 import { PageBlock } from 'notion-types'
+import { DiscussionEmbed } from 'disqus-react';
 
 import TweetEmbed from 'react-tweet-embed'
 
@@ -34,6 +35,7 @@ import Script from 'next/script'
 // import { GitHubShareButton } from './GitHubShareButton'
 
 import styles from './styles.module.css'
+import { Box } from '@mui/material'
 
 // -----------------------------------------------------------------------------
 // dynamic imports for optional components
@@ -157,6 +159,9 @@ export const NotionPage: React.FC<types.PageProps> = ({
 }) => {
   const router = useRouter()
   const lite = useSearchParam('lite')
+  const [disqusConfig, setDisqusConfig] = React.useState({});
+
+
 
   const components = React.useMemo(
     () => ({
@@ -192,6 +197,21 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const keys = Object.keys(recordMap?.block || {})
   const block = recordMap?.block?.[keys[0]]?.value
 
+  const title = getBlockTitle(block, recordMap) || site.name
+
+  React.useEffect(() => {
+    if (router.isReady) {
+      setDisqusConfig({
+        // url: `test-page.notion.dev.daoedu.tw${router.asPath}`,
+        url: `${process.env.HOSTNAME}${router.asPath}`,
+        identifier: encodeURIComponent(title),
+        title,
+        language: 'zh_TW', // e.g. for Traditional Chinese (Taiwan)
+      });
+    }
+  }, [router.asPath, router.isReady, title]);
+
+
   // const isRootPage =
   //   parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
   const isBlogPost =
@@ -217,7 +237,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
     return <Page404 site={site} pageId={pageId} error={error} />
   }
 
-  const title = getBlockTitle(block, recordMap) || site.name
 
   // console.log('notion page', {
   //   isDev: config.isDev,
@@ -246,6 +265,8 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const socialDescription =
     getPageProperty<string>('Description', block, recordMap) ||
     config.description
+
+
 
   return (
     <>
@@ -306,6 +327,16 @@ export const NotionPage: React.FC<types.PageProps> = ({
         pageAside={pageAside}
         footer={footer}
       />
+      <Box sx={{ marginTop: '20px' }}>
+        {Object.keys(disqusConfig).length > 0 && (
+          <DiscussionEmbed
+            shortname="dao-dao-a-xue"
+            config={disqusConfig}
+            width="100%"
+            height={320}
+          />
+        )}
+      </Box>
 
       {/* <GitHubShareButton /> */}
     </>

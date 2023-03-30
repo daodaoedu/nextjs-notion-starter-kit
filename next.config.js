@@ -29,6 +29,9 @@ module.exports = withBundleAnalyzer({
     // }
     return config
   },
+  env: {
+    HOSTNAME: 'https://blog.daoedu.tw'
+  },
   images: {
     // loader: "custom",
     loader: 'akamai',
