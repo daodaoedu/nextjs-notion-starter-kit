@@ -197,20 +197,9 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const keys = Object.keys(recordMap?.block || {})
   const block = recordMap?.block?.[keys[0]]?.value
-
-  const title = getBlockTitle(block, recordMap) || site.name
-
-  React.useEffect(() => {
-    if (router.isReady) {
-      setDisqusConfig({
-        // url: `test-page.notion.dev.daoedu.tw${router.asPath}`,
-        url: `${process.env.HOSTNAME}${router.asPath}`,
-        identifier: encodeURIComponent(title),
-        title,
-        language: 'zh_TW' // e.g. for Traditional Chinese (Taiwan)
-      })
-    }
-  }, [router.asPath, router.isReady, title])
+  const title = block
+    ? getBlockTitle(block, recordMap) ?? site.name
+    : 'Notion Page'
 
   // const isRootPage =
   //   parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
@@ -219,6 +208,18 @@ export const NotionPage: React.FC<types.PageProps> = ({
 
   const showTableOfContents = !!isBlogPost
   const minTableOfContentsItems = 3
+
+  React.useEffect(() => {
+    if (router.isReady && isBlogPost) {
+      setDisqusConfig({
+        // url: `test-page.notion.dev.daoedu.tw${router.asPath}`,
+        url: `${process.env.HOSTNAME}${router.asPath}`,
+        identifier: encodeURIComponent(title),
+        title,
+        language: 'zh_TW' // e.g. for Traditional Chinese (Taiwan)
+      })
+    }
+  }, [isBlogPost, router.asPath, router.isReady, title])
 
   const pageAside = React.useMemo(
     () => (
