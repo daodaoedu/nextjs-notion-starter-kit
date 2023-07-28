@@ -7,7 +7,7 @@ import { useRouter } from 'next/router'
 import { useSearchParam } from 'react-use'
 import BodyClassName from 'react-body-classname'
 import { PageBlock } from 'notion-types'
-import { DiscussionEmbed } from 'disqus-react';
+import { DiscussionEmbed } from 'disqus-react'
 
 import TweetEmbed from 'react-tweet-embed'
 
@@ -29,7 +29,7 @@ import { Page404 } from './Page404'
 import { PageHead } from './PageHead'
 import { PageAside } from './PageAside'
 import { Footer } from './Footer_v2'
-import Navigation from "../components/Navigation_v2"
+import Navigation from '../components/Navigation_v2'
 import Script from 'next/script'
 // import { NotionPageHeader } from './NotionPageHeader'
 // import { GitHubShareButton } from './GitHubShareButton'
@@ -87,10 +87,13 @@ const Collection = dynamic(() =>
   )
 )
 const Equation = dynamic(() =>
-  import('../components/react-notion-x/third-party/equation').then((m) => m.Equation)
+  import('../components/react-notion-x/third-party/equation').then(
+    (m) => m.Equation
+  )
 )
 const Pdf = dynamic(
-  () => import('../components/react-notion-x/third-party/pdf').then((m) => m.Pdf),
+  () =>
+    import('../components/react-notion-x/third-party/pdf').then((m) => m.Pdf),
   {
     ssr: false
   }
@@ -159,9 +162,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
 }) => {
   const router = useRouter()
   const lite = useSearchParam('lite')
-  const [disqusConfig, setDisqusConfig] = React.useState({});
-
-
+  const [disqusConfig, setDisqusConfig] = React.useState({})
 
   const components = React.useMemo(
     () => ({
@@ -206,11 +207,10 @@ export const NotionPage: React.FC<types.PageProps> = ({
         url: `${process.env.HOSTNAME}${router.asPath}`,
         identifier: encodeURIComponent(title),
         title,
-        language: 'zh_TW', // e.g. for Traditional Chinese (Taiwan)
-      });
+        language: 'zh_TW' // e.g. for Traditional Chinese (Taiwan)
+      })
     }
-  }, [router.asPath, router.isReady, title]);
-
+  }, [router.asPath, router.isReady, title])
 
   // const isRootPage =
   //   parsePageId(block?.id) === parsePageId(site?.rootNotionPageId)
@@ -237,7 +237,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
     return <Page404 site={site} pageId={pageId} error={error} />
   }
 
-
   // console.log('notion page', {
   //   isDev: config.isDev,
   //   title,
@@ -257,16 +256,14 @@ export const NotionPage: React.FC<types.PageProps> = ({
   const canonicalPageUrl = getCanonicalPageUrl(site, recordMap)(pageId)
   const socialImage = mapImageUrl(
     getPageProperty<string>('Social Image', block, recordMap) ||
-    (block as PageBlock).format?.page_cover ||
-    config.defaultPageCover,
+      (block as PageBlock).format?.page_cover ||
+      config.defaultPageCover,
     block
   )
 
   const socialDescription =
     getPageProperty<string>('Description', block, recordMap) ||
     config.description
-
-
 
   return (
     <>
@@ -280,10 +277,10 @@ export const NotionPage: React.FC<types.PageProps> = ({
       />
       <Script
         async
-        src="https://www.googletagmanager.com/gtag/js?id=G-7YB1PNN0BX"
-        strategy="afterInteractive"
+        src='https://www.googletagmanager.com/gtag/js?id=G-7YB1PNN0BX'
+        strategy='afterInteractive'
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id='google-analytics' strategy='afterInteractive'>
         {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -291,7 +288,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
             gtag('config', 'G-7YB1PNN0BX');
           `}
       </Script>
-      <Script type="text/javascript">
+      <Script type='text/javascript'>
         {`
           (function(c,l,a,r,i,t,y){
           c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments) };
@@ -329,12 +326,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
       />
       <Box sx={{ marginTop: '20px' }}>
         {Object.keys(disqusConfig).length > 0 && (
-          <DiscussionEmbed
-            shortname="dao-dao-a-xue"
-            config={disqusConfig}
-            width="100%"
-            height={320}
-          />
+          <DiscussionEmbed shortname='dao-dao-a-xue' config={disqusConfig} />
         )}
       </Box>
 
