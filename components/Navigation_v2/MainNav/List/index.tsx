@@ -9,25 +9,25 @@ const NAV_LINK = [
     target: "_blank",
   },
   {
-    name: "找活動",
-    link: "https://www.daoedu.tw/activities",
+    name: "找夥伴",
+    link: "https://www.daoedu.tw/partner",
     target: "_blank",
+  },
+  {
+    name: '找揪團',
+    link: 'https://www.daoedu.tw/group',
+    target: '_blank',
   },
   {
     name: "找故事",
     link: "/",
-    target: "_self",
-  },
-  {
-    name: "找場域",
-    link: "https://www.daoedu.tw/locations",
-    target: "_blank",
+    target: "self",
   },
   {
     name: "加入社群",
-    link: "https://www.facebook.com/groups/2237666046370459",
+    link: "https://www.daoedu.tw/join",
     target: "_blank",
-  },
+  }
 ];
 
 const LinkListWrapper = styled.ul`
